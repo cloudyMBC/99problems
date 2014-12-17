@@ -59,6 +59,18 @@ end
 
 # Flatten an array without using Array#flatten
 def flatten(array)
+  result = []
+  array.each do |item|
+    if item.is_a?(Array)
+        flatten(item).each do |e|
+          result << e
+        end  
+    else
+    result << item
+    end  
+  end
+  result
+end
 
 end
 
